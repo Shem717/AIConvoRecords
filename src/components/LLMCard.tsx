@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Conversation } from '../types';
 import './LLMCard.css';
 
 interface LLMCardProps {

@@ -1,24 +1,30 @@
 .llm-card {
-  background: white;
-  border-left: 4px solid;
-  border-radius: 8px;
+  background: rgba(20, 30, 60, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left-width: 4px;
+  border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   position: relative;
+  color: white;
 }
 
 .llm-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background: rgba(30, 45, 80, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .llm-card.drag-over {
-  background-color: #f5f5f5;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: rgba(50, 70, 120, 0.6);
+  box-shadow: 0 0 20px rgba(66, 133, 244, 0.4);
 }
 
 .llm-header {
@@ -32,13 +38,15 @@
   font-size: 32px;
   display: flex;
   align-items: center;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
 }
 
 .llm-title {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: #333;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .llm-content {
@@ -52,19 +60,20 @@
   align-items: center;
   gap: 4px;
   padding: 12px;
-  background-color: #f9f9f9;
-  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .count-number {
   font-size: 28px;
   font-weight: 700;
-  color: #333;
+  color: #fff;
 }
 
 .count-label {
   font-size: 12px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -78,7 +87,7 @@
 .action-btn {
   padding: 10px 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -87,30 +96,35 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .view-btn {
-  background-color: #007bff;
+  background: rgba(66, 133, 244, 0.8);
   color: white;
+  border: 1px solid rgba(66, 133, 244, 0.3);
 }
 
 .view-btn:hover:not(:disabled) {
-  background-color: #0056b3;
+  background: rgba(66, 133, 244, 1);
+  box-shadow: 0 0 15px rgba(66, 133, 244, 0.4);
 }
 
 .view-btn:disabled {
-  background-color: #ccc;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
   cursor: not-allowed;
-  opacity: 0.6;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .upload-btn {
-  background-color: #f0f0f0;
-  color: #333;
-  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .upload-btn:hover {
-  background-color: #e8e8e8;
-  border-color: #999;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
