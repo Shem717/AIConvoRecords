@@ -3,7 +3,11 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: rgba(20, 30, 60, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .conversation-viewer.fullscreen {
@@ -14,6 +18,7 @@
   bottom: 0;
   z-index: 1000;
   border-radius: 0;
+  background: rgba(10, 15, 25, 0.95);
 }
 
 .viewer-header {
@@ -21,24 +26,26 @@
   align-items: center;
   gap: 16px;
   padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
-  background: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   flex-wrap: wrap;
 }
 
 .back-btn {
   padding: 8px 16px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+  color: #fff;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .back-btn:hover {
-  background-color: #e8e8e8;
-  border-color: #999;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .viewer-title-section {
@@ -50,7 +57,8 @@
   margin: 0 0 4px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .viewer-meta {
@@ -70,37 +78,41 @@
   border-radius: 4px;
   font-size: 12px;
   font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .date-badge {
   font-size: 12px;
-  color: #999;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .fullscreen-btn {
   padding: 8px 12px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition: all 0.2s ease;
+  color: #fff;
 }
 
 .fullscreen-btn:hover {
-  background-color: #e8e8e8;
-  border-color: #999;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .viewer-content {
   flex: 1;
-  overflow: auto;
-  background: #f9f9f9;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
 }
 
 .html-iframe {
   width: 100%;
   height: 100%;
   border: none;
-  background: white;
+  background: white; /* Content of iframe is usually light, so keep it white */
+  display: block;
 }
