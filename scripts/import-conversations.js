@@ -27,12 +27,17 @@ function getProvider(filename) {
 }
 
 function getTodayDate() {
-  return new Date().toISOString().split('T')[0];
+  return new Date().toISOString();
 }
 
 function main() {
+  fs.mkdirSync(PUBLIC_DIR, { recursive: true });
+
   if (!fs.existsSync(PENDING_DIR)) {
     console.log('No pending directory found.');
+    if (!fs.existsSync(CONVERSATIONS_FILE)) {
+      fs.writeFileSync(CONVERSATIONS_FILE, '[]');
+    }
     return;
   }
 
@@ -40,6 +45,9 @@ function main() {
 
   if (files.length === 0) {
     console.log('No HTML files found in pending/');
+    if (!fs.existsSync(CONVERSATIONS_FILE)) {
+      fs.writeFileSync(CONVERSATIONS_FILE, '[]');
+    }
     return;
   }
 
@@ -67,7 +75,8 @@ function main() {
       filename: file,
       title,
       provider,
-      date
+      date,
+      htmlPath: `/${file}`
     };
 
     // Remove existing entry with same ID if exists

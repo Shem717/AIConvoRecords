@@ -1,9 +1,9 @@
 export interface Conversation {
   id: string;
   title: string;
-  llm: string;
-  date: Date;
-  htmlPath: string;
+  provider: string;
+  date: string;
+  htmlPath?: string;
   content?: string;
 }
 

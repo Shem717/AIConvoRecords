@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Conversation, LLMCategory } from '../types';
 import './ConversationViewer.css';
 
@@ -14,6 +14,37 @@ export const ConversationViewer: React.FC<ConversationViewerProps> = ({
   onBack
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [content, setContent] = useState(conversation.content);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  const formatDate = () => {
+    const parsed = new Date(conversation.date);
+    return Number.isNaN(parsed.getTime()) ? 'Unknown date' : parsed.toLocaleDateString();
+  };
+
+  useEffect(() => {
+    setContent(conversation.content);
+    setLoadError(null);
+
+    const loadRemoteContent = async () => {
+      if (conversation.content || !conversation.htmlPath) return;
+
+      try {
+        const response = await fetch(conversation.htmlPath);
+        if (!response.ok) {
+          throw new Error(`Failed to load HTML (${response.status})`);
+        }
+
+        const html = await response.text();
+        setContent(html);
+      } catch (error) {
+        console.error('Unable to load conversation HTML', error);
+        setLoadError('Unable to load this transcript.');
+      }
+    };
+
+    loadRemoteContent();
+  }, [conversation]);
 
   return (
     <div className={`conversation-viewer ${isFullscreen ? 'fullscreen' : ''}`}>
@@ -28,7 +59,7 @@ export const ConversationViewer: React.FC<ConversationViewerProps> = ({
               {llmCategory.icon} {llmCategory.displayName}
             </span>
             <span className="date-badge">
-              {new Date(conversation.date).toLocaleDateString()}
+              {formatDate()}
             </span>
           </p>
         </div>
@@ -42,12 +73,16 @@ export const ConversationViewer: React.FC<ConversationViewerProps> = ({
       </div>
 
       <div className="viewer-content">
-        <iframe
-          className="html-iframe"
-          srcDoc={conversation.content}
-          title={conversation.title}
-          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        />
+        {loadError ? (
+          <div className="empty-state">{loadError}</div>
+        ) : (
+          <iframe
+            className="html-iframe"
+            srcDoc={content ?? '<p>Loading conversation...</p>'}
+            title={conversation.title}
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          />
+        )}
       </div>
     </div>
   );

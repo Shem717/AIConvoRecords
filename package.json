@@ -4,6 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "ensure-conversations": "node scripts/ensure-conversations-file.js",
+    "predev": "npm run ensure-conversations",
+    "prebuild": "npm run ensure-conversations",
     "dev": "vite",
     "build": "tsc && vite build",
     "import-convos": "node scripts/import-conversations.js",
