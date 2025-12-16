@@ -15,6 +15,13 @@ export const ConversationList: React.FC<ConversationListProps> = ({
   onDelete,
   onView
 }) => {
+  const formatDateTime = (value: string) => {
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) return 'Unknown date';
+
+    return `${parsed.toLocaleDateString()} at ${parsed.toLocaleTimeString()}`;
+  };
+
   return (
     <div className="conversation-list">
       <div className="list-header">
@@ -40,10 +47,7 @@ export const ConversationList: React.FC<ConversationListProps> = ({
             <div key={conversation.id} className="conversation-item">
               <div className="conversation-info">
                 <h3 className="conversation-title">{conversation.title}</h3>
-                <p className="conversation-date">
-                  {new Date(conversation.date).toLocaleDateString()} at{' '}
-                  {new Date(conversation.date).toLocaleTimeString()}
-                </p>
+                <p className="conversation-date">{formatDateTime(conversation.date)}</p>
               </div>
               <div className="conversation-actions">
                 <button

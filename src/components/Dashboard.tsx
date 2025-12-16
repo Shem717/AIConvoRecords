@@ -23,15 +23,12 @@ export const Dashboard: React.FC = () => {
     const reader = new FileReader();
     reader.onload = (e) => {
       const content = e.target?.result as string;
-      const conversation: Conversation = {
-        id: Date.now().toString(),
+      addConversation({
         title: file.name.replace('.html', ''),
-        llm: llmName,
-        date: new Date(),
-        htmlPath: URL.createObjectURL(file),
+        provider: llmName,
+        date: new Date().toISOString(),
         content
-      };
-      addConversation(conversation);
+      });
     };
     reader.readAsText(file);
   };
