@@ -191,11 +191,35 @@ export const useLLMData = () => {
     persistStoredConversations(stored);
   };
 
+  const updateConversationTitle = (id: string, newTitle: string) => {
+    setLlmCategories(prev => prev.map(category => ({
+      ...category,
+      conversations: category.conversations.map(c =>
+        c.id === id ? { ...c, title: newTitle } : c
+      )
+    })));
+
+    const allConversations = llmCategories.flatMap(c => c.conversations);
+    const conversation = allConversations.find(c => c.id === id);
+
+    if (conversation) {
+      const updated = { ...conversation, title: newTitle };
+      const stored = loadStoredConversations();
+      const merged = new Map<string, Conversation>();
+
+      stored.forEach(c => merged.set(c.id, c));
+      merged.set(updated.id, updated);
+
+      persistStoredConversations(Array.from(merged.values()));
+    }
+  };
+
   return {
     llmCategories,
     loading,
     addConversation,
     removeConversation,
+    updateConversationTitle,
     llmOptions: Object.values(LLMS)
   };
 };

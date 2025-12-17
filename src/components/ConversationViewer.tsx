@@ -13,7 +13,6 @@ export const ConversationViewer: React.FC<ConversationViewerProps> = ({
   llmCategory,
   onBack
 }) => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [content, setContent] = useState(conversation.content);
   const [loadError, setLoadError] = useState<string | null>(null);
 
@@ -47,7 +46,7 @@ export const ConversationViewer: React.FC<ConversationViewerProps> = ({
   }, [conversation]);
 
   return (
-    <div className={`conversation-viewer ${isFullscreen ? 'fullscreen' : ''}`}>
+    <div className="conversation-viewer fullscreen">
       <div className="viewer-header">
         <button className="back-btn" onClick={onBack}>
           ← Back
@@ -63,13 +62,6 @@ export const ConversationViewer: React.FC<ConversationViewerProps> = ({
             </span>
           </p>
         </div>
-        <button
-          className="fullscreen-btn"
-          onClick={() => setIsFullscreen(!isFullscreen)}
-          title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
-        >
-          {isFullscreen ? '⛔' : '⛶'}
-        </button>
       </div>
 
       <div className="viewer-content">
