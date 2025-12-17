@@ -9,13 +9,15 @@ import './Dashboard.css';
 type ViewState = 'dashboard' | 'list' | 'viewer';
 
 export const Dashboard: React.FC = () => {
-  const { llmCategories, loading, addConversation, removeConversation } = useLLMData();
+  const { llmCategories, loading, addConversation, removeConversation, updateConversationTitle } = useLLMData();
   const [viewState, setViewState] = useState<ViewState>('dashboard');
-  const [selectedLLM, setSelectedLLM] = useState<LLMCategory | null>(null);
+  const [selectedLLMName, setSelectedLLMName] = useState<string | null>(null);
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
 
+  const selectedLLM = selectedLLMName ? llmCategories.find(c => c.name === selectedLLMName) || null : null;
+
   const handleLLMClick = (category: LLMCategory) => {
-    setSelectedLLM(category);
+    setSelectedLLMName(category.name);
     setViewState('list');
   };
 
@@ -45,7 +47,7 @@ export const Dashboard: React.FC = () => {
 
   const handleBackToDashboard = () => {
     setViewState('dashboard');
-    setSelectedLLM(null);
+    setSelectedLLMName(null);
   };
 
   const handleDeleteConversation = (conversationId: string) => {
@@ -96,6 +98,7 @@ export const Dashboard: React.FC = () => {
           onBack={handleBackToDashboard}
           onDelete={handleDeleteConversation}
           onView={handleViewConversation}
+          onRename={updateConversationTitle}
         />
       )}
 
