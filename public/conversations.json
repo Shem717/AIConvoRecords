@@ -7,6 +7,16 @@
     "date": "2025-12-16"
   },
   {
+    "id": "AI Tools & Skills for Wealthy People {ChatGPT}",
+    "filename": "AI Tools & Skills for Wealthy People {ChatGPT}.html",
+    "title": "Transcript — Visible User ↔ Assistant Messages",
+    "provider": "chatgpt",
+    "date": "2026-02-22T02:46:00.871Z",
+    "lastImportedAt": "2026-02-22T02:46:00.871Z",
+    "contentHash": "f8f8b91064ff232e071dd8de5441dd381dbcc67847e7aa230d8150e057e791d1",
+    "htmlPath": "/AI Tools & Skills for Wealthy People {ChatGPT}.html"
+  },
+  {
     "id": "Comparing n8n Workflows Transcript {Abacus}",
     "filename": "Comparing n8n Workflows Transcript {Abacus}.html",
     "title": "Transcript – Comparing n8n Workflows (PDF)",
@@ -18,14 +28,20 @@
     "filename": "E-mail & Latin Phrases {ChatGPT}.html",
     "title": "Conversation Transcription — Samuel & Mari",
     "provider": "chatgpt",
-    "date": "2025-12-16"
+    "date": "2026-02-22T02:46:00.872Z",
+    "lastImportedAt": "2026-02-22T02:46:00.872Z",
+    "contentHash": "af0ddceb3f462f8f249252f797cb345951a50b3bd1ca53f48b7e941c6e35e4c8",
+    "htmlPath": "/E-mail & Latin Phrases {ChatGPT}.html"
   },
   {
     "id": "Human Design {ChatGPT}",
     "filename": "Human Design {ChatGPT}.html",
     "title": "Conversation Transcription — Human Design (Samuel & Mari)",
     "provider": "chatgpt",
-    "date": "2025-12-16"
+    "date": "2026-02-22T02:46:00.873Z",
+    "lastImportedAt": "2026-02-22T02:46:00.873Z",
+    "contentHash": "082f93ef73be7bad34939510db5f09b1ce0ed899768d2d31ebcd26cd195fe9b2",
+    "htmlPath": "/Human Design {ChatGPT}.html"
   },
   {
     "id": "Mastermind & SignalStream Pair Eval {ChatGPT}",
@@ -37,8 +53,11 @@
   {
     "id": "Sexual assault --_ pain --_ Solution {ChatGPT}",
     "filename": "Sexual assault --_ pain --_ Solution {ChatGPT}.html",
-    "title": "Conversation Transcription",
+    "title": "Sexual assault-->Pain-->Solution {ChatGPT}",
     "provider": "chatgpt",
-    "date": "2025-12-16"
+    "date": "2026-02-22T02:46:00.874Z",
+    "lastImportedAt": "2026-02-22T02:46:00.874Z",
+    "contentHash": "948b37f6f9a47605b1af00f6545c93091fda9fa969e3f1c1a0c5e04feb5d1de9",
+    "htmlPath": "/Sexual assault --_ pain --_ Solution {ChatGPT}.html"
   }
 ]

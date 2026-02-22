@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "ensure-conversations": "node scripts/ensure-conversations-file.js",
-    "predev": "npm run ensure-conversations",
-    "prebuild": "npm run ensure-conversations",
+    "import-convos": "node scripts/import-conversations.js",
+    "validate-convos": "node scripts/validate-conversations.js",
+    "content-integrity": "npm run validate-convos",
+    "predev": "npm run ensure-conversations && npm run validate-convos",
+    "prebuild": "npm run ensure-conversations && npm run validate-convos",
     "dev": "vite",
     "build": "tsc && vite build",
-    "import-convos": "node scripts/import-conversations.js",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
